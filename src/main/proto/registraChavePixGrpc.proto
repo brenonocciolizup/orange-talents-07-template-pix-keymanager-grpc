@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "br.com.zupacademy.brenonoccioli";
+option java_outer_classname = "RegistraChavePixGrpc";
+option objc_class_prefix = "HLW";
+
+package br.com.zupacademy.brenonoccioli;
+
+service RegistraChavePixGrpcService {
+  rpc send (RegistraChavePixGrpcRequest) returns (RegistraChavePixGrpcReply) {}
+}
+
+message RegistraChavePixGrpcRequest {
+  string name = 1;
+}
+
+message RegistraChavePixGrpcReply {
+  string message = 1;
+}
