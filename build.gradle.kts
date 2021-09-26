@@ -9,6 +9,11 @@ plugins {
     id("com.google.protobuf") version "0.8.15"
 }
 
+allOpen{
+    annotation("jakarta.inject.Singleton")
+}
+
+
 version = "0.1"
 group = "br.com.zupacademy.brenonoccioli"
 
@@ -26,10 +31,13 @@ micronaut {
 }
 
 dependencies {
+    kapt("io.micronaut:micronaut-http-validation")
     kapt("io.micronaut.data:micronaut-data-processor")
+    implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut:micronaut-runtime")
     implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
     implementation("io.micronaut.grpc:micronaut-grpc-runtime")
+    implementation("io.micronaut.grpc:micronaut-grpc-client-runtime")
     implementation("io.micronaut.kotlin:micronaut-kotlin-runtime")
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
     implementation("javax.annotation:javax.annotation-api")
@@ -43,6 +51,7 @@ dependencies {
     implementation("io.micronaut:micronaut-validation")
 
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("io.micronaut.xml:micronaut-jackson-xml")
 
     testImplementation("io.micronaut:micronaut-http-client")
 
