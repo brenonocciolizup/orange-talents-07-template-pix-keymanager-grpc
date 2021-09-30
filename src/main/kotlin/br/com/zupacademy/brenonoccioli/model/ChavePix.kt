@@ -42,5 +42,29 @@ class ChavePix(
 
     @Column(nullable = false)
     val criadaEm: LocalDateTime = LocalDateTime.now()
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as ChavePix
+
+        if (idCliente != other.idCliente) return false
+        if (tipoChave != other.tipoChave) return false
+        if (tipoConta != other.tipoConta) return false
+        if (chave != other.chave) return false
+        if (idPix != other.idPix) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = idCliente.hashCode()
+        result = 31 * result + (tipoChave?.hashCode() ?: 0)
+        result = 31 * result + (tipoConta?.hashCode() ?: 0)
+        result = 31 * result + chave.hashCode()
+        result = 31 * result + idPix.hashCode()
+        return result
+    }
+
 
 }

@@ -1,4 +1,4 @@
-package br.com.zupacademy.brenonoccioli.service
+package br.com.zupacademy.brenonoccioli.endpointGrpc.registra
 
 import br.com.zupacademy.brenonoccioli.model.ChavePix
 import br.com.zupacademy.brenonoccioli.model.ContaAssociada

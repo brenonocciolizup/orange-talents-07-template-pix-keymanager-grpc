@@ -1,6 +1,6 @@
 package br.com.zupacademy.brenonoccioli.exceptions
 
-class ChavePixExistenteException(s: String) : Exception() {
+class ChavePixExistenteException() : Exception() {
     override val message: String?
-        get() = "Chave Pix já cadastrada"
+        get() = "chave pix existente"
 }

@@ -10,6 +10,7 @@ service RegistraChavePixGrpcService {
   rpc registra (RegistraChavePixRequest) returns (RegistraChavePixResponse) {}
 }
 
+
 message RegistraChavePixRequest {
   string clienteId = 1;
   TipoConta tipoConta = 2;

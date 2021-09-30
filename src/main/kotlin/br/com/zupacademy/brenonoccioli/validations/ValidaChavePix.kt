@@ -1,7 +1,7 @@
 package br.com.zupacademy.brenonoccioli.validations
 
 import br.com.zupacademy.brenonoccioli.model.TipoChave
-import br.com.zupacademy.brenonoccioli.service.NovaChavePix
+import br.com.zupacademy.brenonoccioli.endpointGrpc.registra.NovaChavePix
 import io.micronaut.core.annotation.AnnotationValue
 import io.micronaut.validation.validator.constraints.ConstraintValidator
 import io.micronaut.validation.validator.constraints.ConstraintValidatorContext

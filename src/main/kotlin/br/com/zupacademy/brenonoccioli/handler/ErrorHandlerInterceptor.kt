@@ -1,6 +1,9 @@
 package br.com.zupacademy.brenonoccioli.handler
 
+import br.com.zupacademy.brenonoccioli.exceptions.ChaveNaoExisteException
 import br.com.zupacademy.brenonoccioli.exceptions.ChavePixExistenteException
+import br.com.zupacademy.brenonoccioli.exceptions.CpfInvalidoException
+import br.com.zupacademy.brenonoccioli.exceptions.ExclusaoNaoAutorizadaException
 import io.grpc.Status
 import io.grpc.StatusRuntimeException
 import io.grpc.stub.StreamObserver
@@ -31,9 +34,18 @@ class ErrorHandlerInterceptor: MethodInterceptor<Any, Any> {
                 is ChavePixExistenteException -> Status.ALREADY_EXISTS
                     .withCause(ex)
                     .withDescription("Valor de chave informado já está registrado")
+                is CpfInvalidoException -> Status.FAILED_PRECONDITION
+                    .withCause(ex)
+                    .withDescription("CPF inválido")
+                is ChaveNaoExisteException -> Status.NOT_FOUND
+                    .withCause(ex)
+                    .withDescription("Chave informada não existe")
                 is StatusRuntimeException -> Status.INVALID_ARGUMENT
                     .withCause(ex)
                     .withDescription(ex.message)
+                is ExclusaoNaoAutorizadaException -> Status.PERMISSION_DENIED
+                    .withCause(ex)
+                    .withDescription("Exclusão não autorizada")
                 is HttpClientException -> Status.INTERNAL
                     .withCause(ex)
                     .withDescription(ex.message)

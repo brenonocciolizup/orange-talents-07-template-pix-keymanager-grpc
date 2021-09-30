@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "br.com.zupacademy.brenonoccioli";
+option java_outer_classname = "RemoveChavePixGrpc";
+
+package br.com.zupacademy.brenonoccioli;
+
+service RemoveChavePixGrpcService {
+  rpc remove (RemoveChavePixRequest) returns (RemoveChavePixResponse){}
+}
+
+
+message RemoveChavePixRequest {
+  string idPix = 1;
+  string idCliente = 2;
+}
+
+message RemoveChavePixResponse {
+  string message = 1;
+}

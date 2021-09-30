@@ -1,4 +1,4 @@
-package br.com.zupacademy.brenonoccioli.service
+package br.com.zupacademy.brenonoccioli.endpointGrpc.registra
 
 import br.com.zupacademy.brenonoccioli.clients.ConsultaItauClient
 import br.com.zupacademy.brenonoccioli.exceptions.ChavePixExistenteException
@@ -20,7 +20,7 @@ class RegistraChavePixService(val repository: ChavePixRepository,
     @Transactional
     fun registra(@Valid novaChave: NovaChavePix?): ChavePix{
         if(repository.existsByChave(novaChave!!.chave)){
-            throw ChavePixExistenteException("Chave Pix já existente")
+            throw ChavePixExistenteException()
         }
 
         log.info("consultando erp itaú")
